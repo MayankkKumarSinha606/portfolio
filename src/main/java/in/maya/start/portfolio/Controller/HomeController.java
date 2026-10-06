@@ -17,7 +17,7 @@ public class HomeController {
     @GetMapping({"/projects"})
     public String showProjectPage(Model model)
     {
-        model.addAttribute("title", "Projectss");
+        model.addAttribute("title", "Projects");
         //model.addAttribute("page", "projects");
 
         return "master";
