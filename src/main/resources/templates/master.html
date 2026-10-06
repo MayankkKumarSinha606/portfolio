@@ -24,17 +24,17 @@
     <div th:insert = "~{menu :: menu}"> </div>
 <!--  Home  -->
     <div th:if="${title == 'Home'}">
-    <div th:insert = "~@{home::home}"></div>
+    <div th:insert = "~{home::home}"></div>
     </div>
 <!--  Contact  -->
     <div th:if="${title == 'Contact'}">
-    <div th:insert = "~@{contact::contact}"></div></div>
+    <div th:insert = "~{contact::contact}"></div></div>
 <!--  Resume  -->
     <div th:if="${title == 'Resume'}">
-    <div th:insert = "~@{resume::resume}"></div></div>
+    <div th:insert = "~{resume::resume}"></div></div>
 <!--  Projects  -->
     <div th:if="${title == 'Projects'}">
-    <div th:insert = "~@{projects::projects}"></div></div>
+    <div th:insert = "~{projects::projects}"></div></div>
 </main>
 <!-- Footer-->
 <div th:insert = "~{footer :: footer}"> </div>
