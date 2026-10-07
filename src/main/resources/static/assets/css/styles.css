@@ -11754,29 +11754,13 @@ html {
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
 
     opacity: 0;
-    animation: navigationHint 5s ease-in-out forwards;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
 }
 
-@keyframes navigationHint {
-    0% {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
-
-    15% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    80% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
+#navigation-hint.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 @media (min-width: 992px) {
