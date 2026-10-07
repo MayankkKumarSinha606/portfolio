@@ -11732,3 +11732,9 @@ html {
     left: -2vw;
   }
 }
+@media(max-width:1200px){
+    .hero-buttons .btn{
+        padding: 0.6rem 1.5rem !important;
+        font-size: 0.95rem !important
+    }
+}
