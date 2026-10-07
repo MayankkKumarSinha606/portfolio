@@ -11738,3 +11738,49 @@ html {
         font-size: 0.95rem !important
     }
 }
+#navigation-hint {
+    position: fixed;
+    top: 72px;
+    right: 70px;
+    z-index: 1050;
+
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    animation: navigationHint 5s ease-in-out forwards;
+}
+
+@keyframes navigationHint {
+    0% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+@media (min-width: 992px) {
+    #navigation-hint {
+        display: none;
+    }
+}
