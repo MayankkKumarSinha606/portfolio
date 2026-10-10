@@ -27,3 +27,129 @@ if (navigationHint && navbarToggler) {
         navigationHint.classList.remove("show");
     });
 }
+
+/* Phishing project screenshot gallery */
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryElement =
+        document.getElementById("phishingGalleryModal");
+
+    const imageModalElement =
+        document.getElementById("phishingImageModal");
+
+    const fullImage =
+        document.getElementById("phishingFullImage");
+
+    const imageTitle =
+        document.getElementById("phishingImageTitle");
+
+    if (!galleryElement || !imageModalElement ||
+        !fullImage || !imageTitle) {
+        return;
+    }
+
+    const galleryModal =
+        bootstrap.Modal.getOrCreateInstance(galleryElement);
+
+    const imageModal =
+        bootstrap.Modal.getOrCreateInstance(imageModalElement);
+
+    let returnToGallery = false;
+
+    document.querySelectorAll(".screenshot-card").forEach(card => {
+        card.addEventListener("click", () => {
+            fullImage.src = card.dataset.fullImage;
+            imageTitle.textContent = card.dataset.imageTitle;
+            returnToGallery = true;
+
+            galleryElement.addEventListener(
+                "hidden.bs.modal",
+                function openImage() {
+                    galleryElement.removeEventListener(
+                        "hidden.bs.modal", openImage
+                    );
+                    imageModal.show();
+                }
+            );
+
+            galleryModal.hide();
+        });
+    });
+
+    imageModalElement.addEventListener("hidden.bs.modal", () => {
+        fullImage.src = "";
+
+        if (returnToGallery) {
+            returnToGallery = false;
+            galleryModal.show();
+        }
+    });
+});
+
+// Infinite City screenshot gallery and full-size viewer
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryElement =
+        document.getElementById("infiniteCityGalleryModal");
+
+    const imageModalElement =
+        document.getElementById("infiniteCityImageModal");
+
+    const fullImage =
+        document.getElementById("infiniteCityFullImage");
+
+    const imageTitle =
+        document.getElementById("infiniteCityImageTitle");
+
+    if (!galleryElement || !imageModalElement || !fullImage || !imageTitle) {
+        return;
+    }
+
+    const galleryModal =
+        bootstrap.Modal.getOrCreateInstance(galleryElement);
+
+    const imageModal =
+        bootstrap.Modal.getOrCreateInstance(imageModalElement);
+
+    let shouldReturnToGallery = false;
+    let selectedImage = null;
+
+    galleryElement.querySelectorAll(".screenshot-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            selectedImage = {
+                src: card.dataset.fullImage,
+                title: card.dataset.imageTitle || "Screenshot"
+            };
+
+            if (!selectedImage.src) return;
+
+            fullImage.src = selectedImage.src;
+            fullImage.alt = selectedImage.title;
+            imageTitle.textContent = selectedImage.title;
+
+            shouldReturnToGallery = true;
+
+            galleryElement.addEventListener(
+                "hidden.bs.modal",
+                function openFullImage() {
+                    galleryElement.removeEventListener(
+                        "hidden.bs.modal",
+                        openFullImage
+                    );
+
+                    imageModal.show();
+                },
+                { once: true }
+            );
+
+            galleryModal.hide();
+        });
+    });
+
+    imageModalElement.addEventListener("hidden.bs.modal", () => {
+        fullImage.src = "";
+
+        if (shouldReturnToGallery) {
+            shouldReturnToGallery = false;
+            galleryModal.show();
+        }
+    });
+});

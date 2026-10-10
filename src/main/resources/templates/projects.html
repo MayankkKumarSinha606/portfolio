@@ -9,37 +9,434 @@
                 <section class="py-5">
                     <div class="container px-5 mb-5">
                         <div class="text-center mb-5">
-                            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+                            <h1 class="display-5 fw-bolder mb-0">
+                                <span class="text-gradient d-inline">Projects</span>
+                            </h1>
+                        </div>
+                        <!-- Professional Experience -->
+                        <div class="row gx-5 justify-content-center mb-5">
+                            <div class="col-lg-11 col-xl-9 col-xxl-8">
+
+                                <div class="mb-4">
+                                    <h2 class="h3 fw-bolder mb-2">
+                                        Professional Experience
+                                    </h2>
+                                    <p class="text-muted mb-0">
+                                        Practical experience building and testing backend systems.
+                                    </p>
+                                </div>
+
+                                <div class="card border-0 shadow-sm rounded-4">
+                                    <div class="card-body p-4 p-md-5">
+
+                                        <h3 class="h4 fw-bolder mb-2">
+                                            Backend Development Intern
+                                        </h3>
+                                        <a th:href = "@{/assets/documents/Internship Certificate.pdf}"
+                                           class="btn btn-otline-primary rounded-pill px-4 mt-3"
+                                           target="_blank"
+                                           rel="noopener noreferrer">
+                                            <i class = "bi bi-award me-2"></i>
+                                            View Internship Certificate
+                                        </a>
+                                        <p class="text-gradient fw-semibold mb-3">
+                                            Nearby Technologies (PayNearby)
+                                        </p>
+
+                                        <p class="text-muted mb-3">
+                                            Worked on backend development for Aadhaar Enabled
+                                            Payment System (AePS) workflows, contributing to
+                                            Java and Spring Boot services.
+                                        </p>
+
+                                        <p class="text-muted mb-3">
+                                            Worked with service-layer components and backend
+                                            integrations, and wrote unit tests to help verify
+                                            application behaviour.
+                                        </p>
+
+                                        <p class="small mb-0">
+                                            <span class="fw-semibold">Technologies:</span>
+                                            Java, Spring Boot, REST APIs, JUnit 5, Mockito
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Personal Projects Heading -->
+                        <div class="text-center mb-5 mt-5">
+                            <h2 class="display-5 fw-bolder mb-3">
+                                <span class="text-gradient d-inline">Personal Projects</span>
+                            </h2>
+                            <p class="lead text-muted mb-0">
+                                A selection of projects showcasing my skills in
+                                software development, machine learning, and web technologies.
+                            </p>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-11 col-xl-9 col-xxl-8">
                                 <!-- Project Card 1-->
-                                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                    <div class="card-body p-0">
+                                <div class="card border-0 shadow-sm rounded-4 border-0 mb-4">
+                                    <div class="card-body p-4 p-md-5">
                                         <div class="d-flex align-items-center">
                                             <div class="p-5">
-                                                <h2 class="fw-bolder">Project Name 1</h2>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                                                <h2 class="h3 fw-bolder mb-3">Phishing URL detection Extension</h2>
+                                                <p class = "text-muted mb-3">Developed a machine-learning-based system to identify
+                                                    potentially malicious URLs by analysing URL features
+                                                    and security-related information.
+                                                </p>
+                                                <p class="text-muted mb-3">
+                                                    Evaluated multiple classification models, including CatBoost, Gradient Boosting and Random Forest, achieving a reported classification accuracy of 95%.</p>
+
+                                                <p class="small mb-0">
+                                                <span class = "fw-semibold">Technologies:</span>
+                                                Python, Flask, CatBoost, Machine Learning, REST APIs
+                                                </p>
+                                                <button type="button"
+                                                        class="btn btn-primary rounded-pill px4"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#phishingGalleryModal">
+                                                    <i class="="bi bi-images me-2></i>
+                                                    View Screenshots
+                                                </button>
                                             </div>
-                                            <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+<!--                                            Single screenshot visible by default-->
+                                            <div class="col-lg-5">
+                                                <button type="button"
+                                                        class="project-preview-button"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#phishingGalleryModal"
+                                                        aria-label="View phishing detection screenshots">
+                                                    <img th:src="@{/assets/images/phishing-safe.png}"
+                                                    class="project-preview-image"
+                                                    alt="Chrome extension displaying a safewebsite result">
+                                                    <span class="project-preview-overlay">
+                                                        <i class=" = bi bi-images me-2"></i>
+                                                        View all 3 screenshots
+                                                        </span>
+                                                </button>
+                                        </div>
+                                            </div>
+                                        </div>
+                                </div>
+
+<!--                                Screenshot Gallery Modal-->
+                                <div class="modal fade" id="phishingGalleryModal"
+                                     tabindex="-1"
+                                     aria-labelledby="phishingGalleryTitle"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content rounded-4 border-0 shadow">
+
+                                            <div class="modal-header">
+                                                <div>
+                                                    <h2 class="modal-title fs-4 fw-bolder"
+                                                        id="phishingGalleryTitle">
+                                                        Phishing Detection Gallery
+                                                    </h2>
+                                                    <p class="text-muted small mb-0">
+                                                        Explore the extension and its analysis dashboard.
+                                                    </p>
+                                                </div>
+
+                                                <button type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body p-4">
+                                                <div class="row g-4">
+
+                                                    <!-- Screenshot 1 -->
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <button type="button"
+                                                                class="screenshot-card"
+                                                                data-full-image="/assets/images/phishing-safe.png"
+                                                                data-image-title="Safe Website Detection">
+
+                                                            <img th:src="@{/assets/images/phishing-safe.png}"
+                                                                 alt="Safe website detection">
+
+                                                            <span class="screenshot-card-caption">
+                                <strong>01. Safe Detection</strong>
+                                <small>Extension identifies a safe website</small>
+                            </span>
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- Screenshot 2 -->
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <button type="button"
+                                                                class="screenshot-card"
+                                                                data-full-image="/assets/images/phishing-alert.png"
+                                                                data-image-title="Phishing Alert">
+
+                                                            <img th:src="@{/assets/images/phishing-alert.png}"
+                                                                 alt="Phishing alert from the extension">
+
+                                                            <span class="screenshot-card-caption">
+                                <strong>02. Phishing Alert</strong>
+                                <small>Warning displayed for a phishing URL</small>
+                            </span>
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- Screenshot 3 -->
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <button type="button"
+                                                                class="screenshot-card"
+                                                                data-full-image="/assets/images/phishing-bulk-results.png"
+                                                                data-image-title="Bulk URL Analysis">
+
+                                                            <img th:src="@{/assets/images/phishing-bulk-results.png}"
+                                                                 alt="Bulk scanning results for multiple URLs">
+
+                                                            <span class="screenshot-card-caption">
+                                <strong>03. Bulk Analysis</strong>
+                                <small>Multiple URLs and their classifications</small>
+                            </span>
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Full-size Screenshot Modal -->
+                                <div class="modal fade" id="phishingImageModal"
+                                     tabindex="-1"
+                                     aria-labelledby="phishingImageTitle"
+                                     aria-hidden="true">
+
+                                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                                        <div class="modal-content bg-dark border-0 rounded-4">
+
+                                            <div class="modal-header border-secondary">
+                                                <h2 class="modal-title fs-5 text-white"
+                                                    id="phishingImageTitle">
+                                                    Screenshot
+                                                </h2>
+
+                                                <button type="button"
+                                                        class="btn-close btn-close-white"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close screenshot"></button>
+                                            </div>
+
+                                            <div class="modal-body text-center p-2 p-md-4">
+                                                <img id="phishingFullImage"
+                                                     src=""
+                                                     alt="Selected project screenshot"
+                                                     class="img-fluid rounded-3">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Project Card 2-->
-                                <div class="card overflow-hidden shadow rounded-4 border-0">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="p-5">
-                                                <h2 class="fw-bolder">Project Name 2</h2>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
-                                            </div>
-                                            <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
-                                        </div>
-                                    </div>
+
+                    <!-- Infinite City Project Card -->
+
+                    <div class="card overflow-hidden shadow-sm rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="row g-0 align-items-stretch">
+
+                                <!-- Project Description -->
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h2 class="h3 fw-bolder mb-3">
+                                        Infinite City — 3D Environment
+                                    </h2>
+
+                                    <p class="text-muted mb-3">
+                                        Developed an interactive 3D city environment using
+                                        React and Three.js, featuring procedural generation
+                                        of city blocks as the camera moves through the scene.
+                                    </p>
+
+                                    <p class="text-muted mb-3">
+                                        Implemented keyboard, mouse, and touch controls
+                                        to navigate and explore the city from different
+                                        viewpoints.
+                                    </p>
+
+                                    <ul class="text-muted mb-3">
+                                        <li>Procedurally generated city blocks.</li>
+                                        <li>WASD movement and vertical camera controls.</li>
+                                        <li>Mouse-drag navigation and scroll-wheel zoom.</li>
+                                        <li>Touch-based navigation for mobile devices.</li>
+                                    </ul>
+
+                                    <p class="small mb-4">
+                                        <strong>Technologies:</strong>
+                                        React, Three.js, React Three Fiber,
+                                        React Three Drei, Vite, Tailwind CSS
+                                    </p>
+
+                                    <button type="button"
+                                            class="btn btn-primary rounded-pill px-4"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#infiniteCityGalleryModal">
+                                        <i class="bi bi-images me-2"></i>
+                                        View Screenshots
+                                    </button>
                                 </div>
+
+                                <!-- Main Preview: City Overview -->
+                                <div class="col-lg-5">
+                                    <button type="button"
+                                            class="project-preview-button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#infiniteCityGalleryModal"
+                                            aria-label="View Infinite City screenshots">
+
+                                        <img th:src="@{/assets/images/BlockDesign.png}"
+                                             class="project-preview-image"
+                                             alt="Overview of the Infinite City environment">
+
+                                        <span class="project-preview-overlay">
+                        <i class="bi bi-images me-2"></i>
+                        View all 3 screenshots
+                    </span>
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+
+                    <!-- Infinite City Screenshot Gallery -->
+                    <div class="modal fade"
+                         id="infiniteCityGalleryModal"
+                         tabindex="-1"
+                         aria-labelledby="infiniteCityGalleryTitle"
+                         aria-hidden="true">
+
+                        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content rounded-4 border-0 shadow">
+
+                                <div class="modal-header">
+                                    <div>
+                                        <h2 class="modal-title fs-4 fw-bolder"
+                                            id="infiniteCityGalleryTitle">
+                                            Infinite City Gallery
+                                        </h2>
+                                        <p class="text-muted small mb-0">
+                                            Explore the infinitely generated 3D city.
+                                        </p>
+                                    </div>
+
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body p-4">
+                                    <div class="row g-4">
+
+                                        <!-- Image 1: City Block -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <button type="button"
+                                                    class="screenshot-card"
+                                                    data-full-image="/assets/images/BlockDesign.png"
+                                                    data-image-title="Infinite City — City Block">
+
+                                                <img th:src="@{/assets/images/BlockDesign.png}"
+                                                     alt="Close-up of a city block">
+
+                                                <span class="screenshot-card-caption">
+                                <strong>01. City Block</strong>
+                                <small>Buildings, roads and city details</small>
+                            </span>
+                                            </button>
+                                        </div>
+
+                                        <!-- Image 2: Navigation Controls -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <button type="button"
+                                                    class="screenshot-card"
+                                                    data-full-image="/assets/images/Controls.png"
+                                                    data-image-title="Infinite City — Controls">
+
+                                                <img th:src="@{/assets/images/Controls.png}"
+                                                     alt="Navigation instructions for Infinite City">
+
+                                                <span class="screenshot-card-caption">
+                                <strong>02. Navigation Controls</strong>
+                                <small>Keyboard, mouse and touch instructions</small>
+                            </span>
+                                            </button>
+                                        </div>
+
+                                        <!-- Image 3: City Overview -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <button type="button"
+                                                    class="screenshot-card"
+                                                    data-full-image="/assets/images/BirdEyeView.png"
+                                                    data-image-title="Infinite City — Full Overview">
+
+                                                <img th:src="@{/assets/images/BirdEyeView.png}"
+                                                     alt="Wide aerial view of the city">
+
+                                                <span class="screenshot-card-caption">
+                                <strong>03. City Overview</strong>
+                                <small>The complete 3D city environment</small>
+                            </span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infinite City Full-Size Image Modal -->
+                    <div class="modal fade"
+                         id="infiniteCityImageModal"
+                         tabindex="-1"
+                         aria-labelledby="infiniteCityImageTitle"
+                         aria-hidden="true">
+
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content bg-dark border-0 rounded-4">
+
+                                <div class="modal-header border-secondary">
+                                    <h2 class="modal-title fs-5 text-white"
+                                        id="infiniteCityImageTitle">
+                                        Screenshot
+                                    </h2>
+
+                                    <button type="button"
+                                            class="btn-close btn-close-white"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close screenshot"></button>
+                                </div>
+
+                                <div class="modal-body text-center p-2 p-md-4">
+                                    <img id="infiniteCityFullImage"
+                                         src=""
+                                         alt="Selected Infinite City screenshot"
+                                         class="img-fluid rounded-3">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
                 </section>
                 <!-- Call to action section-->
                 <section class="py-5 bg-gradient-primary-to-secondary text-white">
