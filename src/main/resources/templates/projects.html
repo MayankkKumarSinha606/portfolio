@@ -124,6 +124,13 @@
                                             <i class="bi bi-images me-2"></i>
                                             View Screenshots
                                         </button>
+                                        <a href="https://github.com/MayankkKumarSinha606/Phishing-URL-Extension"
+                                           class="btn btn-outline-dark rounded-pill px-4"
+                                           target="_blank"
+                                           rel="noopener noreferrer">
+                                           <i class="bi bi-github me-2"></i>
+                                        View Source Code
+                                        </a>
                                     </div>
 
                                 </div>
@@ -192,6 +199,15 @@
                                             <i class="bi bi-images me-2"></i>
                                             View Screenshots
                                         </button>
+
+                                        <a href="https://github.com/MayankkKumarSinha606/Infinite-City"
+                                           class="btn btn-outline-dark rounded-pill px-4"
+                                           target="_blank"
+                                           rel="noopener noreferrer">
+                                            <i class="bi bi-github me-2"></i>
+                                            View on GitHub
+                                        </a>
+
                                     </div>
 
                                 </div>
@@ -424,12 +440,320 @@
         </div>
     </div>
 
+
+    <!-- Project Card 3: Airline Reservation System -->
+    <div class="card project-card overflow-hidden shadow-sm rounded-4 border-0 mb-5">
+        <div class="card-body p-0">
+            <div class="row g-0 align-items-stretch">
+
+                <!-- Project description -->
+                <div class="col-lg-7 p-4 p-md-5 project-description">
+
+                    <h2 class="h3 fw-bolder mb-3">
+                        Airline Reservation System
+                    </h2>
+
+                    <p class="text-muted mb-3">
+                        Developed B Airways, an airline reservation system as a
+                        database systems project. It supports flight information,
+                        passenger details, seat selection, bookings, and payment
+                        confirmation.
+                    </p>
+
+                    <p class="text-muted mb-3">
+                        The system also includes an administrative management panel
+                        for managing flights and staff, along with managerial reports
+                        covering revenue, passenger counts, booking counts, and
+                        flight details.
+                    </p>
+
+                    <ul class="text-muted mb-3">
+                        <li>Flight and aircraft information management.</li>
+                        <li>Passenger details and seat selection.</li>
+                        <li>Flight booking and payment confirmation.</li>
+                        <li>Administrative tools and managerial reports.</li>
+                    </ul>
+
+                    <p class="small mb-4">
+                        <strong>Technologies:</strong>
+                        PostgreSQL, SQL, Database Design, Web Development
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-2">
+
+                        <button type="button"
+                                class="btn btn-primary rounded-pill px-4"
+                                data-bs-toggle="modal"
+                                data-bs-target="#airlineGalleryModal">
+                            <i class="bi bi-images me-2"></i>
+                            View Screenshots
+                        </button>
+
+                        <a href="https://github.com/MayankkKumarSinha606/Airline-Reservation-System"
+                           class="btn btn-outline-dark rounded-pill px-4"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="bi bi-github me-2"></i>
+                            View on GitHub
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Single preview image, matching Infinite City -->
+                <div class="col-lg-5 project-image-column">
+                    <button type="button"
+                            class="project-preview-button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#airlineGalleryModal"
+                            aria-label="View Airline Reservation System screenshots">
+
+                        <img th:src="@{/assets/images/management_pg.png}"
+                             class="project-preview-image"
+                             alt="B Airways management panel">
+
+                        <span class="project-preview-overlay">
+                        <i class="bi bi-images me-2"></i>
+                        View all 7 screenshots
+                    </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== Airline Reservation System Modals ===================== -->
+
+    <!-- Screenshot Gallery Modal -->
+    <div class="modal fade" id="airlineGalleryModal"
+         tabindex="-1"
+         aria-labelledby="airlineGalleryTitle"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content rounded-4 border-0 shadow">
+
+                <div class="modal-header">
+                    <div>
+                        <h2 class="modal-title fs-4 fw-bolder"
+                            id="airlineGalleryTitle">
+                            Airline Reservation System Gallery
+                        </h2>
+                        <p class="text-muted small mb-0">
+                            Explore the B Airways reservation system.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+
+                        <!-- 01. Home Page: first image in the gallery -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/home_pg.png"
+                                    data-image-title="Home Page">
+                                <img th:src="@{/assets/images/home_pg.png}"
+                                     alt="B Airways home page">
+                                <span class="screenshot-card-caption">
+                                <strong>01. Home Page</strong>
+                                <small>Landing page and flight search</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 02. About Us -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/about_pg.png"
+                                    data-image-title="About Us">
+                                <img th:src="@{/assets/images/about_pg.png}"
+                                     alt="B Airways About Us page">
+                                <span class="screenshot-card-caption">
+                                <strong>02. About Us</strong>
+                                <small>Information about the airline</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 03. Aircraft Details -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/aircraft_details_pg.png"
+                                    data-image-title="Aircraft Details">
+                                <img th:src="@{/assets/images/aircraft_details_pg.png}"
+                                     alt="Aircraft models and specifications">
+                                <span class="screenshot-card-caption">
+                                <strong>03. Aircraft Details</strong>
+                                <small>Aircraft models and specifications</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 04. Flight Booking -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/booking_pg.png"
+                                    data-image-title="Flight Booking">
+                                <img th:src="@{/assets/images/booking_pg.png}"
+                                     alt="Flight booking form and seat selection">
+                                <span class="screenshot-card-caption">
+                                <strong>04. Flight Booking</strong>
+                                <small>Passenger details and seat selection</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 05. Management Panel -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/management_pg.png"
+                                    data-image-title="Management Panel">
+                                <img th:src="@{/assets/images/management_pg.png}"
+                                     alt="B Airways management panel">
+                                <span class="screenshot-card-caption">
+                                <strong>05. Management Panel</strong>
+                                <small>Administrative management tools</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 06. Payment Confirmation -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/payment_pg.png"
+                                    data-image-title="Payment Confirmation">
+                                <img th:src="@{/assets/images/payment_pg.png}"
+                                     alt="Successful payment and boarding passes">
+                                <span class="screenshot-card-caption">
+                                <strong>06. Payment Confirmation</strong>
+                                <small>Payment result and boarding passes</small>
+                            </span>
+                            </button>
+                        </div>
+
+                        <!-- 07. Managerial Reports -->
+                        <div class="col-md-6 col-lg-4">
+                            <button type="button"
+                                    class="screenshot-card"
+                                    data-full-image="/assets/images/report_pg.png"
+                                    data-image-title="Managerial Reports">
+                                <img th:src="@{/assets/images/report_pg.png}"
+                                     alt="B Airways managerial reports">
+                                <span class="screenshot-card-caption">
+                                <strong>07. Managerial Reports</strong>
+                                <small>Revenue, passenger and booking reports</small>
+                            </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-size Screenshot Modal -->
+    <div class="modal fade" id="airlineImageModal"
+         tabindex="-1"
+         aria-labelledby="airlineImageTitle"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h2 class="modal-title fs-5 text-white"
+                        id="airlineImageTitle">
+                        Screenshot
+                    </h2>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close screenshot"></button>
+                </div>
+
+                <div class="modal-body text-center p-2 p-md-4">
+                    <img id="airlineFullImage"
+                         src=""
+                         alt="Selected Airline Reservation System screenshot"
+                         class="img-fluid rounded-3">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Card 4: Smart Garage Door Opener (IIoT) -->
+    <div class="card project-card overflow-hidden shadow-sm rounded-4 border-0 mb-5">
+        <div class="card-body p-0">
+            <div class="row g-0">
+
+                <div class="col-12 p-4 p-md-5 project-description">
+
+                    <h2 class="h3 fw-bolder mb-3">
+                        Smart Garage Door Opener (IIoT)
+                    </h2>
+
+                    <p class="text-muted mb-3">
+                        Developed a group IoT project that enables remote control
+                        of a garage door model using a smartphone over Wi-Fi
+                        through the Blynk IoT platform.
+                    </p>
+
+                    <p class="text-muted mb-3">
+                        An ESP32 microcontroller communicates with the Blynk
+                        application and controls a servo motor to open and close
+                        the physical garage door model.
+                    </p>
+
+                    <ul class="text-muted mb-3">
+                        <li>Remote garage door control through the Blynk application.</li>
+                        <li>ESP32-based Wi-Fi connectivity.</li>
+                        <li>Servo motor control using Arduino code.</li>
+                        <li>Team coordination, risk assessment, and documentation.</li>
+                    </ul>
+
+                    <p class="small mb-4">
+                        <strong>Technologies:</strong>
+                        ESP32, Arduino IDE, C++, Blynk IoT, Wi-Fi, Servo Motors
+                    </p>
+
+                    <a href="https://drive.google.com/file/d/1OUOAqLMdXnKexanUeznWfdsVwn6z0oGV/view?usp=drivesdk"
+                       class="btn btn-primary rounded-pill px-4"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Watch Project Demo
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- ===================== Call to action ===================== -->
     <section class="py-5 bg-gradient-primary-to-secondary text-white">
         <div class="container px-5 my-5">
             <div class="text-center">
                 <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" th:href="@{/contact}">Contact me</a>
             </div>
         </div>
     </section>

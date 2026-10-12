@@ -153,3 +153,64 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+/* Airline Reservation System screenshot gallery and full-size viewer */
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryElement =
+        document.getElementById("airlineGalleryModal");
+
+    const imageModalElement =
+        document.getElementById("airlineImageModal");
+
+    const fullImage =
+        document.getElementById("airlineFullImage");
+
+    const imageTitle =
+        document.getElementById("airlineImageTitle");
+
+    if (!galleryElement || !imageModalElement || !fullImage || !imageTitle) {
+        return;
+    }
+
+    const galleryModal =
+        bootstrap.Modal.getOrCreateInstance(galleryElement);
+
+    const imageModal =
+        bootstrap.Modal.getOrCreateInstance(imageModalElement);
+
+    let shouldReturnToGallery = false;
+
+    galleryElement.querySelectorAll(".screenshot-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            const imageSrc = card.dataset.fullImage;
+            const title = card.dataset.imageTitle || "Screenshot";
+
+            if (!imageSrc) return;
+
+            fullImage.src = imageSrc;
+            fullImage.alt = title;
+            imageTitle.textContent = title;
+
+            shouldReturnToGallery = true;
+
+            galleryElement.addEventListener(
+                "hidden.bs.modal",
+                function openFullImage() {
+                    imageModal.show();
+                },
+                { once: true }
+            );
+
+            galleryModal.hide();
+        });
+    });
+
+    imageModalElement.addEventListener("hidden.bs.modal", () => {
+        fullImage.src = "";
+
+        if (shouldReturnToGallery) {
+            shouldReturnToGallery = false;
+            galleryModal.show();
+        }
+    });
+});
