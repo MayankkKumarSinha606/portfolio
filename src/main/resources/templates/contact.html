@@ -66,6 +66,18 @@
                                     <!-- This is what your users will see when there is-->
                                     <!-- an error submitting the form-->
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                    <!-- Optional WhatsApp checkbox -->
+                                    <div class="form-check mb-3">
+                                        <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="sendOnWhatsApp"
+                                        />
+                                        <label class="form-check-label" for="sendOnWhatsApp">
+                                            <i class="bi bi-whatsapp text-success"></i>
+                                            Also send this message on WhatsApp
+                                        </label>
+                                    </div>
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
                                 </form>

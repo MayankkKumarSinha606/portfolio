@@ -1,158 +1,677 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
 
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
+<body class="d-flex flex-column h-100 bg-light">
 
+<div class="container px-5 my-5" th:fragment="resume">
 
-            <!-- Page Content-->
-            <div class="container px-5 my-5" th:fragment = "resume">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
+    <!-- ===================== Resume Heading ===================== -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bolder mb-0">
+            <span class="text-gradient d-inline">Resume</span>
+        </h1>
+        <p class="lead text-muted mt-3 mb-0">
+            Education, professional experience, projects, and technical skills.
+        </p>
+    </div>
+
+    <div class="row gx-5 justify-content-center">
+        <div class="col-lg-11 col-xl-9 col-xxl-8">
+
+            <!-- ===================== Experience ===================== -->
+            <section class="mb-5">
+
+                <div class="d-flex flex-wrap align-items-center
+                            justify-content-between gap-3 mb-4">
+
+                    <h2 class="text-primary fw-bolder mb-0">
+                        Experience
+                    </h2>
+
+                    <a class="btn btn-primary px-4 py-3"
+                       th:href="@{/assets/documents/Mayankk_Kumar_Sinha_Resume.pdf}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-download me-2"></i>
+                        Download Resume
+                    </a>
+
                 </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
-                        <!-- Experience Section-->
-                        <section>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h2 class="text-primary fw-bolder mb-0">Experience</h2>
-                                <!-- Download resume button-->
-                                <!-- Note: Set the link href target to a PDF file within your project-->
-                                <a class="btn btn-primary px-4 py-3"
-                                   th:href="@{assets/resume/Mayankk_Kumar_Sinha_Resume.pdf}">
-                                    <div class="d-inline-block bi bi-download me-2"></div>
-                                    Download Resume
-                                </a>
-                            </div>
-                            <!-- Experience Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2019 - Present</div>
-                                                <div class="small fw-bolder">Web Developer</div>
-                                                <div class="small text-muted">Stark Industries</div>
-                                                <div class="small text-muted">Los Angeles, CA</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
+
+                <!-- Nearby Technologies -->
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="row align-items-center gx-5">
+
+                            <div class="col-lg-4 text-center text-lg-start
+                                        mb-4 mb-lg-0">
+
+                                <div class="bg-light p-4 rounded-4 h-100">
+
+                                    <div class="text-primary fw-bolder mb-2">
+                                        June 2025 – September 2025
                                     </div>
+
+                                    <div class="small fw-bolder">
+                                        Software Engineering Intern
+                                    </div>
+
+                                    <div class="small text-muted mt-2">
+                                        Nearby Technologies Private Limited
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        PayNearby
+                                    </div>
+
                                 </div>
                             </div>
-                            <!-- Experience Card 2-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2017 - 2019</div>
-                                                <div class="small fw-bolder">SEM Specialist</div>
-                                                <div class="small text-muted">Wayne Enterprises</div>
-                                                <div class="small text-muted">Gotham City, NY</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
+
+                            <div class="col-lg-8">
+
+                                <p class="text-muted mb-3">
+                                    Worked on backend development and testing
+                                    for fintech services, gaining practical
+                                    experience with Java, Spring Boot, and
+                                    Aadhaar Enabled Payment System (AePS)
+                                    workflows.
+                                </p>
+
+                                <ul class="text-muted mb-3">
+                                    <li class="mb-2">
+                                        Developed and maintained JUnit test
+                                        cases to verify backend service
+                                        reliability and accuracy.
+                                    </li>
+
+                                    <li class="mb-2">
+                                        Created tests for controllers,
+                                        services, DAOs, repositories, DTOs,
+                                        and configuration components.
+                                    </li>
+
+                                    <li class="mb-2">
+                                        Worked with Spring Boot services
+                                        and Aadhaar-based KYC integrations.
+                                    </li>
+
+                                    <li>
+                                        Participated in code reviews,
+                                        cross-functional discussions, and
+                                        Agile development activities.
+                                    </li>
+                                </ul>
+
+                                <p class="small mb-0">
+                                    <strong>Technologies:</strong>
+                                    Java, Spring Boot, REST APIs,
+                                    JUnit 5, Mockito
+                                </p>
+
                             </div>
-                        </section>
-                        <!-- Education Section-->
-                        <section>
-                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>
-                            <!-- Education Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">2015 - 2017</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">Barnett College</div>
-                                                    <div class="small text-muted">Fairfield, NY</div>
-                                                </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">Master's</div>
-                                                    <div class="small text-muted">Web Development</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Education Card 2-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">2011 - 2015</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">ULA</div>
-                                                    <div class="small text-muted">Los Angeles, CA</div>
-                                                </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">Undergraduate</div>
-                                                    <div class="small text-muted">Computer Science</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Divider-->
-                        <div class="pb-5"></div>
-                        <!-- Skills Section-->
-                        <section>
-                            <!-- Skillset Card-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <!-- Professional skills list-->
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SEO/SEM Marketing</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Statistical Analysis</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Web Development</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Network Security</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Adobe Software Suite</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">User Interface Design</div></div>
-                                        </div>
-                                    </div>
-                                    <!-- Languages list-->
-                                    <div class="mb-0">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </section>
 
+            <!-- ===================== Education ===================== -->
+            <section class="mb-5">
 
-    </body>
+                <h2 class="text-secondary fw-bolder mb-4">
+                    Education
+                </h2>
+
+                <!-- KIIT University -->
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="row align-items-center gx-5">
+
+                            <div class="col-lg-4 text-center text-lg-start
+                                        mb-4 mb-lg-0">
+
+                                <div class="bg-light p-4 rounded-4 h-100">
+
+                                    <div class="text-secondary fw-bolder mb-2">
+                                        September 2022 – October 2026
+                                    </div>
+
+                                    <div class="small fw-bolder">
+                                        KIIT University
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        Bhubaneswar, Odisha
+                                    </div>
+
+                                    <div class="fst-italic mt-3">
+                                        <div class="small text-muted">
+                                            B.Tech
+                                        </div>
+                                        <div class="small text-muted">
+                                            Computer Science and Engineering
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+
+                                <h3 class="h5 fw-bolder mb-3">
+                                    Bachelor of Technology
+                                </h3>
+
+                                <p class="text-muted mb-3">
+                                    Studied Computer Science and Engineering,
+                                    developing a foundation in programming,
+                                    software development, databases, data
+                                    structures, and machine learning.
+                                </p>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="badge bg-primary rounded-pill">
+                                        CGPA: 7.61
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class XII -->
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="row align-items-center gx-5">
+
+                            <div class="col-lg-4 text-center text-lg-start
+                                        mb-4 mb-lg-0">
+
+                                <div class="bg-light p-4 rounded-4 h-100">
+
+                                    <div class="text-secondary fw-bolder mb-2">
+                                        May 2021 – July 2022
+                                    </div>
+
+                                    <div class="small fw-bolder">
+                                        JPS Public School
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        Raebareli, Uttar Pradesh
+                                    </div>
+
+                                    <div class="fst-italic mt-3">
+                                        <div class="small text-muted">
+                                            Class XII
+                                        </div>
+                                        <div class="small text-muted">
+                                            Senior Secondary
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+
+                                <h3 class="h5 fw-bolder mb-3">
+                                    Higher Secondary Education
+                                </h3>
+
+                                <p class="text-muted mb-3">
+                                    Completed senior secondary education
+                                    at JPS Public School.
+                                </p>
+
+                                <span class="badge bg-secondary rounded-pill">
+                                    Percentage: 76%
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class X -->
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="row align-items-center gx-5">
+
+                            <div class="col-lg-4 text-center text-lg-start
+                                        mb-4 mb-lg-0">
+
+                                <div class="bg-light p-4 rounded-4 h-100">
+
+                                    <div class="text-secondary fw-bolder mb-2">
+                                        May 2019 – July 2020
+                                    </div>
+
+                                    <div class="small fw-bolder">
+                                        JPS Public School
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        Raebareli, Uttar Pradesh
+                                    </div>
+
+                                    <div class="fst-italic mt-3">
+                                        <div class="small text-muted">
+                                            Class X
+                                        </div>
+                                        <div class="small text-muted">
+                                            Secondary Education
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+
+                                <h3 class="h5 fw-bolder mb-3">
+                                    Secondary Education
+                                </h3>
+
+                                <p class="text-muted mb-3">
+                                    Completed secondary education at
+                                    JPS Public School.
+                                </p>
+
+                                <span class="badge bg-secondary rounded-pill">
+                                    Percentage: 86%
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ===================== Projects ===================== -->
+            <section class="mb-5">
+
+                <h2 class="text-primary fw-bolder mb-4">
+                    Projects
+                </h2>
+
+                <!-- Phishing URL Detection -->
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="d-flex flex-wrap
+                                    justify-content-between
+                                    align-items-start gap-2 mb-3">
+
+                            <h3 class="h4 fw-bolder mb-0">
+                                Phishing URL Detection System
+                            </h3>
+
+                            <span class="badge bg-light text-primary rounded-pill">
+                                July 2025 – October 2025
+                            </span>
+
+                        </div>
+
+                        <p class="text-muted mb-3">
+                            Built a machine-learning-powered phishing
+                            detection system that analyzes URL and domain
+                            security features to identify potentially
+                            malicious websites.
+                        </p>
+
+                        <ul class="text-muted mb-3">
+
+                            <li class="mb-2">
+                                Analyzed more than 30 URL and domain security
+                                features, achieving 95% classification accuracy.
+                            </li>
+
+                            <li class="mb-2">
+                                Developed a Chrome extension that presents
+                                real-time URL safety results using
+                                color-coded indicators.
+                            </li>
+
+                            <li class="mb-2">
+                                Integrated WHOIS, DNS, Alexa, and external
+                                APIs with fault-tolerant backend handling.
+                            </li>
+
+                            <li>
+                                Built a responsive interface with animated
+                                progress indicators for a smoother user
+                                experience.
+                            </li>
+
+                        </ul>
+
+                        <p class="small mb-4">
+                            <strong>Technologies:</strong>
+                            Python, Flask, CatBoost, REST APIs, JavaScript
+                        </p>
+
+                        <a href="https://github.com/MayankkKumarSinha606/Phishing-URL-Extension"
+                           class="btn btn-outline-dark rounded-pill px-4"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="bi bi-github me-2"></i>
+                            View Source Code
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Infinite City -->
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="d-flex flex-wrap
+                                    justify-content-between
+                                    align-items-start gap-2 mb-3">
+
+                            <h3 class="h4 fw-bolder mb-0">
+                                Infinite City — 3D Environment
+                            </h3>
+
+                            <span class="badge bg-light text-primary rounded-pill">
+                                January 2025 – March 2025
+                            </span>
+
+                        </div>
+
+                        <p class="text-muted mb-3">
+                            Designed a browser-based 3D city simulation
+                            using React and Three.js, featuring procedurally
+                            generated city blocks.
+                        </p>
+
+                        <ul class="text-muted mb-3">
+
+                            <li class="mb-2">
+                                Implemented camera controls for navigating
+                                and exploring the 3D environment.
+                            </li>
+
+                            <li class="mb-2">
+                                Worked on terrain loading and performance
+                                optimization.
+                            </li>
+
+                            <li>
+                                Led documentation and architectural design
+                                to improve project clarity and maintainability.
+                            </li>
+
+                        </ul>
+
+                        <p class="small mb-4">
+                            <strong>Technologies:</strong>
+                            React, Three.js
+                        </p>
+
+                        <a href="https://github.com/MayankkKumarSinha606/Infinite-City"
+                           class="btn btn-outline-dark rounded-pill px-4"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="bi bi-github me-2"></i>
+                            View on GitHub
+                        </a>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ===================== Skills ===================== -->
+            <section>
+
+                <h2 class="text-secondary fw-bolder mb-4">
+                    Technical Skills
+                </h2>
+
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-4 p-md-5">
+
+                        <!-- Programming Languages -->
+                        <div class="mb-5">
+
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="feature bg-primary
+                                            bg-gradient-primary-to-secondary
+                                            text-white rounded-3 me-3">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+
+                                <h3 class="fw-bolder mb-0">
+                                    <span class="text-gradient d-inline">
+                                        Programming Languages
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Java
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Python
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        SQL
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Frameworks and APIs -->
+                        <div class="mb-5">
+
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="feature bg-primary
+                                            bg-gradient-primary-to-secondary
+                                            text-white rounded-3 me-3">
+                                    <i class="bi bi-layers"></i>
+                                </div>
+
+                                <h3 class="fw-bolder mb-0">
+                                    <span class="text-gradient d-inline">
+                                        Frameworks and APIs
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Spring Boot
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Flask
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        React
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Three.js
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        REST APIs
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Testing and Tools -->
+                        <div class="mb-5">
+
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="feature bg-primary
+                                            bg-gradient-primary-to-secondary
+                                            text-white rounded-3 me-3">
+                                    <i class="bi bi-tools"></i>
+                                </div>
+
+                                <h3 class="fw-bolder mb-0">
+                                    <span class="text-gradient d-inline">
+                                        Testing and Tools
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        JUnit 5
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Unit Testing
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Integration Testing
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Git and GitHub
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Bitbucket
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Jira and Slack
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Core Concepts -->
+                        <div>
+
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="feature bg-primary
+                                            bg-gradient-primary-to-secondary
+                                            text-white rounded-3 me-3">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+
+                                <h3 class="fw-bolder mb-0">
+                                    <span class="text-gradient d-inline">
+                                        Core Concepts
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Object-Oriented Programming
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Data Structures and Algorithms
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Machine Learning
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-center
+                                                bg-light rounded-4 p-3 h-100">
+                                        Agile / Scrum
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
 </html>
