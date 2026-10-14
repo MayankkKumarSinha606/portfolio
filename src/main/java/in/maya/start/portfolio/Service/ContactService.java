@@ -1,4 +1,4 @@
-package in.maya.start.portfolio;
+package in.maya.start.portfolio.Service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -6,15 +6,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class contactService {
+public class ContactService {
     private final JavaMailSender mailSender;
 
-    @Value("${portfolio.mail.to)")
+    @Value("${portfolio.mail.to}")
     private String recipientEmail;
 
-    @Value("${spring.mail.from}")
+    @Value("${portfolio.mail.from}")
     private String senderEmail;
-    public contactService(JavaMailSender mailSender){
+    public ContactService(JavaMailSender mailSender){
         this.mailSender = mailSender;
     }
     public void sendContactEmail(
