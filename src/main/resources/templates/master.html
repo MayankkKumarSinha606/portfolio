@@ -9,32 +9,34 @@
     <title th:text="'My Portfolio - ' +${title}"></title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" th:href="@{/assets/images/favicon.ico}" />
-    <!-- Custom Google font-->
+    <!-- Fonts: DM Sans (body), DM Serif Display (headings), Caveat (short script phrases) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&amp;family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+    <!-- Coffee & beige theme overrides (must stay AFTER styles.css) -->
+    <link rel="stylesheet" th:href="@{/assets/css/theme.css}" />
 </head>
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
     <!-- Navigation-->
     <div th:insert = "~{menu :: menu}"> </div>
-<!--  Home  -->
+    <!--  Home  -->
     <div th:if="${title == 'Home'}">
-    <div th:insert = "~{home::home}"></div>
+        <div th:insert = "~{home::home}"></div>
     </div>
-<!--  Contact  -->
+    <!--  Contact  -->
     <div th:if="${title == 'Contact'}">
-    <div th:insert = "~{contact::contact}"></div></div>
-<!--  Resume  -->
+        <div th:insert = "~{contact::contact}"></div></div>
+    <!--  Resume  -->
     <div th:if="${title == 'Resume'}">
-    <div th:insert = "~{resume::resume}"></div></div>
-<!--  Projects  -->
+        <div th:insert = "~{resume::resume}"></div></div>
+    <!--  Projects  -->
     <div th:if="${title == 'Projects'}">
-    <div th:insert = "~{projects::projects}"></div></div>
+        <div th:insert = "~{projects::projects}"></div></div>
 </main>
 <!-- Footer-->
 <div th:insert = "~{footer :: footer}"> </div>

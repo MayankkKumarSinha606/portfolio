@@ -1,0 +1,376 @@
+/* ==========================================================================
+   COFFEE & BEIGE THEME
+   Save this file as /assets/css/theme.css (next to styles.css, which stays untouched).
+   It only overrides styles.css and is loaded after it from master.html. To roll back, remove
+   the theme.css link from master.html.
+
+   Palette (contrast on its usual ground):
+     ground  #F3E8D7  page
+     step    #EADBC4  cards, fields (a tone step, not a border or shadow)
+     ink     #35271F  text on ground ........ 11.9:1
+     coffee  #4B3024  wave, footer, buttons .. beige text on it 9.9:1
+     caramel #805638  links on ground ........ 5.2:1 (4.7:1 on step)
+     tan     #D8B994  links and script on coffee 6.5:1
+   caramel is NOT readable on coffee (1.9:1). Use tan there.
+   ========================================================================== */
+
+:root {
+  --ground: #F3E8D7;
+  --step: #EADBC4;
+  --ink: #35271F;
+  --ink-soft: #5E4D42;
+  --coffee: #4B3024;
+  --caramel: #805638;
+  --tan: #D8B994;
+
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-script: "Caveat", "Segoe Script", cursive;
+  --wave-h: clamp(64px, 9vw, 140px);
+
+  /* Remap Bootstrap so its own utilities (text-primary, bg-light, borders) follow the palette */
+  --bs-font-sans-serif: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-font-size: 1.0625rem;
+  --bs-body-line-height: 1.65;
+  --bs-body-color: #35271F;
+  --bs-body-color-rgb: 53, 39, 31;
+  --bs-body-bg: #F3E8D7;
+  --bs-body-bg-rgb: 243, 232, 215;
+  --bs-primary: #805638;
+  --bs-primary-rgb: 128, 86, 56;
+  --bs-secondary: #4B3024;
+  --bs-secondary-rgb: 75, 48, 36;
+  --bs-light-rgb: 234, 219, 196;
+  --bs-link-color: #805638;
+  --bs-link-hover-color: #4B3024;
+  --bs-border-color: #D9C6A8;
+  --bs-border-color-translucent: rgba(75, 48, 36, 0.18);
+  --bs-highlight-bg: #D8B994;
+}
+
+::selection {
+  background: var(--tan);
+  color: var(--coffee);
+}
+
+/* ---------- Type ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+.navbar-brand, .navbar-brand * {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-synthesis: none; /* the display face has one weight; stops fw-bolder from faking bold */
+  color: var(--coffee);
+  letter-spacing: -0.01em;
+}
+
+h1, .h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.08; }
+h2, .h2 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); line-height: 1.15; }
+h3, .h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; }
+.display-3 {
+  font-size: clamp(2.75rem, 6.5vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.fw-light { font-weight: 300 !important; }
+.lead { font-weight: 400; }
+.text-muted { color: var(--ink-soft) !important; }
+
+a { text-underline-offset: 0.2em; }
+
+/* Gradients and clipped text are flattened wherever the template used them */
+.bg-gradient-primary-to-secondary {
+  background: var(--coffee);
+  color: var(--ground);
+}
+.text-gradient {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ink);
+}
+
+/* The one place script type is used: short phrases only */
+.script {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--caramel);
+}
+
+/* ---------- Navigation ----------------------------------------------------- */
+.navbar {
+  --bs-navbar-color: var(--ink);
+  --bs-navbar-hover-color: var(--caramel);
+  --bs-navbar-active-color: var(--caramel);
+  --bs-navbar-brand-color: var(--coffee);
+  --bs-navbar-brand-hover-color: var(--caramel);
+  --bs-navbar-toggler-border-color: transparent;
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%234B3024' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.navbar.bg-white,
+.navbar.bg-light {
+  background-color: transparent !important;
+}
+.navbar-brand { font-size: 1.5rem; }
+.navbar-nav .nav-link { font-weight: 500; }
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"] { font-weight: 700; }
+.navbar-toggler:focus-visible {
+  outline: 3px solid var(--caramel);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Hint bubble next to the hamburger: tone, not shadow */
+#navigation-hint {
+  background: var(--coffee);
+  color: var(--ground);
+  box-shadow: none;
+}
+
+/* ---------- Buttons: one pill shape everywhere ---------------------------- */
+.btn {
+  --bs-btn-border-radius: 50rem;
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: 0.65rem;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-box-shadow: none;
+}
+.btn:focus-visible {
+  outline: 3px solid var(--caramel);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--ground);
+  --bs-btn-bg: var(--coffee);
+  --bs-btn-border-color: var(--coffee);
+  --bs-btn-hover-color: var(--ground);
+  --bs-btn-hover-bg: var(--caramel);
+  --bs-btn-hover-border-color: var(--caramel);
+  --bs-btn-active-color: var(--ground);
+  --bs-btn-active-bg: var(--caramel);
+  --bs-btn-active-border-color: var(--caramel);
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: var(--ground);
+  --bs-btn-disabled-bg: var(--coffee);
+  --bs-btn-disabled-border-color: var(--coffee);
+}
+
+/* Secondary buttons are a filled tone step, not an outlined box */
+.btn-outline-dark,
+.btn-outline-primary,
+.btn-outline-secondary {
+  --bs-btn-color: var(--ink);
+  --bs-btn-bg: var(--step);
+  --bs-btn-border-color: var(--step);
+  --bs-btn-hover-color: var(--ground);
+  --bs-btn-hover-bg: var(--coffee);
+  --bs-btn-hover-border-color: var(--coffee);
+  --bs-btn-active-color: var(--ground);
+  --bs-btn-active-bg: var(--coffee);
+  --bs-btn-active-border-color: var(--coffee);
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: var(--ink-soft);
+  --bs-btn-disabled-bg: var(--step);
+  --bs-btn-disabled-border-color: var(--step);
+}
+
+/* The hero buttons carry px-5 py-3 utilities; this keeps them slim at every width */
+.hero-buttons .btn {
+  padding: 0.7rem 1.6rem !important;
+  font-size: 1rem !important;
+}
+
+/* ---------- Links and badges ---------------------------------------------- */
+.link-primary { color: var(--caramel) !important; }
+.link-primary:hover,
+.link-primary:focus { color: var(--coffee) !important; }
+.link-dark { color: var(--ink) !important; }
+.text-bg-primary {
+  color: var(--ground) !important;
+  background-color: var(--caramel) !important;
+}
+
+/* ---------- Surfaces: no shadows or white boxes at rest -------------------- */
+.shadow, .shadow-sm, .shadow-lg { box-shadow: none !important; }
+.bg-white { background-color: var(--ground) !important; }
+.card {
+  --bs-card-bg: var(--step);
+  --bs-card-border-width: 0;
+  --bs-card-cap-bg: transparent;
+}
+.img-thumbnail { background-color: var(--step); border-color: var(--step); }
+
+/* ---------- Forms ---------------------------------------------------------- */
+.form-control,
+.form-select {
+  background-color: var(--step);
+  border-color: #7D6853; /* 3.9:1 against the field fill */
+  color: var(--ink);
+}
+.form-control::placeholder { color: #6B5A4E; }
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--step);
+  color: var(--ink);
+  border-color: var(--coffee);
+  outline: 3px solid var(--caramel);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+.form-check-input { background-color: var(--step); border-color: #7D6853; }
+.form-check-input:checked {
+  background-color: var(--coffee);
+  border-color: var(--coffee);
+}
+.form-check-input:focus {
+  border-color: var(--coffee);
+  outline: 3px solid var(--caramel);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+.invalid-feedback { color: #9B1C1C; }
+.btn-close:focus {
+  outline: 3px solid var(--caramel);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* ---------- Components that were hard-coded blue --------------------------- */
+.progress {
+  --bs-progress-bg: var(--step);
+  --bs-progress-bar-bg: var(--caramel);
+  --bs-progress-bar-color: var(--ground);
+}
+.nav-pills { --bs-nav-pills-link-active-bg: var(--coffee); --bs-nav-pills-link-active-color: var(--ground); }
+.list-group {
+  --bs-list-group-bg: var(--ground);
+  --bs-list-group-active-bg: var(--coffee);
+  --bs-list-group-active-border-color: var(--coffee);
+}
+.accordion {
+  --bs-accordion-bg: var(--ground);
+  --bs-accordion-active-bg: var(--step);
+  --bs-accordion-active-color: var(--coffee);
+  --bs-accordion-btn-focus-border-color: var(--coffee);
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+/* ---------- Project gallery ----------------------------------------------- */
+.screenshot-card {
+  background: var(--step);
+  border: 0;
+  box-shadow: none;
+  transition: transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease;
+}
+.screenshot-card:hover,
+.screenshot-card:focus-visible {
+  background: #E2CFB1;
+  box-shadow: none;
+}
+.screenshot-card:focus-visible {
+  outline: 3px solid var(--caramel);
+  outline-offset: 3px;
+}
+.screenshot-card img { background: var(--ground); }
+.screenshot-card-caption small { color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-preview-image {
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+/* ---------- Modals --------------------------------------------------------- */
+.modal {
+  --bs-modal-bg: var(--ground);
+  --bs-modal-border-width: 0;
+  --bs-modal-header-border-width: 0;
+  --bs-modal-footer-border-width: 0;
+}
+.modal-backdrop { --bs-backdrop-bg: var(--coffee); --bs-backdrop-opacity: 0.6; }
+
+/* ---------- Profile photo block (template dots recoloured) ----------------- */
+.profile .dots-1 svg,
+.profile .dots-3 svg { fill: var(--ground); }
+.profile .dots-2 svg,
+.profile .dots-4 svg { fill: var(--caramel); }
+
+/* ---------- Waves ----------------------------------------------------------
+   Pure CSS, no markup needed for the footer. Fills are hard-coded to coffee
+   (%234B3024) because a data-URI SVG cannot read CSS variables; change the hex
+   in the three url() values below if the palette ever changes. */
+main { padding-bottom: var(--wave-h); }
+
+footer,
+footer.bg-white,
+footer.bg-light,
+footer.bg-body {
+  background-color: var(--coffee) !important;
+}
+footer {
+  position: relative;
+  color: var(--ground);
+}
+footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 1px);
+  height: var(--wave-h);
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%234B3024' d='M0 64C240 112 480 112 720 68S1200 16 1440 56V120H0Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+}
+footer a:not(.btn),
+footer .text-primary { color: var(--tan) !important; }
+footer a:not(.btn):hover { color: var(--ground) !important; }
+footer .text-muted { color: #CDB89A !important; }
+
+/* Reusable dividers for a section change inside a page (use when the home
+   hero is rebuilt). Put between two sections:
+     <section class="…">…</section>
+     <div class="wave wave--down" aria-hidden="true"></div>   beige  -> coffee
+     <section class="section-coffee">…</section>
+     <div class="wave wave--up" aria-hidden="true"></div>     coffee -> beige   */
+.wave {
+  display: block;
+  height: var(--wave-h);
+  margin-bottom: -1px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.wave--down {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%234B3024' d='M0 64C240 112 480 112 720 68S1200 16 1440 56V120H0Z'/%3E%3C/svg%3E");
+}
+.wave--up {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%234B3024' d='M0 0H1440V60C1200 20 960 12 720 56S240 112 0 60Z'/%3E%3C/svg%3E");
+}
+
+/* A section that sits on coffee: text and accents switch to the light side */
+.section-coffee {
+  background-color: var(--coffee);
+  color: var(--ground);
+}
+.section-coffee h1, .section-coffee h2, .section-coffee h3,
+.section-coffee h4, .section-coffee h5, .section-coffee h6,
+.section-coffee .text-gradient { color: var(--ground); }
+.section-coffee a:not(.btn),
+.section-coffee .text-primary,
+.section-coffee .script { color: var(--tan) !important; }
+.section-coffee .text-muted { color: #CDB89A !important; }
+.section-coffee .btn-primary {
+  --bs-btn-color: var(--coffee);
+  --bs-btn-bg: var(--tan);
+  --bs-btn-border-color: var(--tan);
+  --bs-btn-hover-color: var(--coffee);
+  --bs-btn-hover-bg: var(--ground);
+  --bs-btn-hover-border-color: var(--ground);
+}
+.section-coffee .btn:focus-visible { outline-color: var(--tan); }
