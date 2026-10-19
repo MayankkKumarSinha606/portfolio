@@ -26,6 +26,7 @@
   --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
   --font-script: "Caveat", "Segoe Script", cursive;
   --wave-h: clamp(64px, 9vw, 140px);
+  --footer-wave-h: clamp(28px, 4vw, 56px);
 
   /* Remap Bootstrap so its own utilities (text-primary, bg-light, borders) follow the palette */
   --bs-font-sans-serif: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -306,7 +307,7 @@ a { text-underline-offset: 0.2em; }
    Pure CSS, no markup needed for the footer. Fills are hard-coded to coffee
    (%234B3024) because a data-URI SVG cannot read CSS variables; change the hex
    in the three url() values below if the palette ever changes. */
-main { padding-bottom: var(--wave-h); }
+main { padding-bottom: var(--footer-wave-h); }
 
 footer,
 footer.bg-white,
@@ -324,7 +325,7 @@ footer::before {
   left: 0;
   right: 0;
   bottom: calc(100% - 1px);
-  height: var(--wave-h);
+  height: var(--footer-wave-h);
   pointer-events: none;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%234B3024' d='M0 64C240 112 480 112 720 68S1200 16 1440 56V120H0Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
 }
@@ -374,3 +375,197 @@ footer .text-muted { color: #CDB89A !important; }
   --bs-btn-hover-border-color: var(--ground);
 }
 .section-coffee .btn:focus-visible { outline-color: var(--tan); }
+
+/* ==========================================================================
+   HOME: 3D name and its intro  (built and played by /assets/js/name-intro.js)
+   Fonts and palette are the ones already on the site: DM Serif Display for the
+   name, coffee brown for the letters, caramel for the extruded sides.
+   ========================================================================== */
+.home-hero {
+  position: relative;
+  z-index: 5;              /* the dice falls over the navigation bar */
+  overflow-x: clip;        /* words arriving from the right never cause a sideways scrollbar */
+}
+
+.name3d {
+  --wm-size: clamp(2.5rem, 7vw, 6.5rem);
+  --side: #b98b63;         /* colour of the extruded sides, fading from the coffee face */
+  font-size: var(--wm-size);
+  line-height: 1;
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 1400px;
+  letter-spacing: -0.01em;
+}
+.name3d__stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.28em;
+  padding: 0.15em 0 0.22em;
+  transform-style: preserve-3d;
+}
+.word {
+  display: inline-flex;
+  transform-style: preserve-3d;
+}
+/* Each letter is six copies of itself, pushed back in depth */
+.ltr {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+.ltr__l {
+  display: block;
+  color: var(--side);
+  color: color-mix(in srgb, var(--coffee), var(--side) calc(var(--i) * 17%));
+  transform: translateZ(calc(var(--i) * -0.026em));
+}
+.ltr__l:first-child { color: var(--coffee); }
+.ltr__l:not(:first-child) {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.word--pending .ltr { visibility: hidden; }   /* the first name stays hidden until the dice breaks */
+
+/* Phones: the name stacks, one word per line, and gets bigger */
+@media (max-width: 767.98px) {
+  .name3d { --wm-size: clamp(3rem, 17vw, 5.5rem); }
+  .name3d__stage {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+/* Nothing flashes before the script runs, and nothing stays hidden if it never does */
+html.has-intro:not(.intro-go) .name3d__stage {
+  visibility: hidden;
+  animation: intro-failsafe-visible 0.01s linear 6s forwards;
+}
+@keyframes intro-failsafe-visible { to { visibility: visible; } }
+
+.intro-after {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.intro-after + .intro-after { transition-delay: 0.12s; }
+html.has-intro .intro-after:not(.is-in),
+html.intro-on .intro-after:not(.is-in) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+html.has-intro .intro-after:not(.is-in) {
+  animation: intro-failsafe-show 0.01s linear 6s forwards;
+}
+@keyframes intro-failsafe-show { to { opacity: 1; transform: none; } }
+
+/* Skip / Replay and Sound: small, quiet, always reachable */
+.intro-controls .btn { text-decoration: none; }
+.intro-controls .btn:hover { color: var(--coffee) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .intro-controls { display: none; }
+}
+
+/* ---------- The dice ---------------------------------------------------------- */
+.dice {
+  position: absolute;
+  width: var(--dice);
+  height: var(--dice);
+  transform-style: preserve-3d;
+  transform: rotateX(-24deg) rotateY(32deg);
+  pointer-events: none;
+  z-index: 3;
+}
+.dice__f {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: max(2px, calc(var(--dice) * 0.035)) solid #9a6b45;
+  border-radius: 14%;
+}
+.dice__f--front  { background: #5e3b2a; transform: translateZ(calc(var(--dice) / 2)); }
+.dice__f--back   { background: #4b3024; transform: rotateY(180deg) translateZ(calc(var(--dice) / 2)); }
+.dice__f--right  { background: #6f4733; transform: rotateY(90deg) translateZ(calc(var(--dice) / 2)); }
+.dice__f--left   { background: #533527; transform: rotateY(-90deg) translateZ(calc(var(--dice) / 2)); }
+.dice__f--top    { background: #7a5238; transform: rotateX(90deg) translateZ(calc(var(--dice) / 2)); }
+.dice__f--bottom { background: #3a2419; transform: rotateX(-90deg) translateZ(calc(var(--dice) / 2)); }
+/* One letter of the name on each face: M A Y A N K */
+.dice__letter {
+  font-family: var(--font-display);
+  font-size: calc(var(--dice) * 0.62);
+  line-height: 1;
+  color: #ead6b4;
+  user-select: none;
+}
+.dice-shadow,
+.dice-ring {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.dice-shadow { background: var(--coffee); }
+.dice-ring   { background: var(--tan); }
+.shard {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TOUCH BLOOM  (/assets/js/touch-effect.js)
+   A soft disc spreads from wherever the page is touched or clicked, then fades.
+   It never blocks a click and is switched off for "reduce motion".
+   ========================================================================== */
+.touch-bloom {
+  position: fixed;
+  z-index: 2000;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.touch-bloom::before,
+.touch-bloom::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bloom, var(--caramel));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.touch-bloom::before {
+  left: -64px;
+  top: -64px;
+  width: 128px;
+  height: 128px;
+  animation: bloom-spread 700ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.touch-bloom::after {
+  left: -6px;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  animation: bloom-dot 420ms ease-out forwards;
+}
+@keyframes bloom-spread {
+  0%   { opacity: 0.2; transform: scale(0.12); }
+  100% { opacity: 0;   transform: scale(1); }
+}
+@keyframes bloom-dot {
+  0%   { opacity: 0.45; transform: scale(0.7); }
+  100% { opacity: 0;    transform: scale(2); }
+}
+.touch-bloom--on-dark { --bloom: var(--tan); }   /* footer and the coffee-coloured bands */
+@media (prefers-reduced-motion: reduce) {
+  .touch-bloom { display: none; }
+}
+
+/* ==========================================================================
+   PROJECTS: a compact closing band that joins the footer
+   ========================================================================== */
+main:has(.cta-band) { padding-bottom: 0; }
+body:has(.cta-band) footer::before { display: none; }
