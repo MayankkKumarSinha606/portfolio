@@ -216,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 /* Existing contact form: optional WhatsApp click-to-chat */
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
@@ -224,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form || !checkbox) return;
 
     form.addEventListener("submit", (event) => {
+        // Keep the normal email submission when WhatsApp isn't selected.
         if (!checkbox.checked) return;
 
         const number = (form.dataset.whatsappNumber || "").trim();
@@ -234,10 +236,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const message = document.getElementById("message").value.trim();
+        // Open a tab directly during the user's submit interaction.
+        const whatsappTab = window.open("about:blank", "_blank");
+
+        const name = document.getElementById("name")?.value.trim() || "";
+        const email = document.getElementById("email")?.value.trim() || "";
+        const phone = document.getElementById("phone")?.value.trim() || "";
+        const message = document.getElementById("message")?.value.trim() || "";
 
         const text =
             `Hi Mayank,\n\n` +
@@ -250,9 +255,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const url =
             `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 
-        // Open immediately from the submit interaction to reduce
-        // the chance of the browser blocking the new tab.
-        window.open(url, "_blank");
+        if (whatsappTab) {
+            // Navigate the already-open tab to WhatsApp.
+            whatsappTab.location.href = url;
+        } else {
+            // Don't silently imply WhatsApp opened if the browser blocked it.
+            alert(
+                "Your email will still be submitted, but your browser blocked " +
+                "the WhatsApp tab. Allow pop-ups for this site to use WhatsApp."
+            );
+        }
+
+        // Do not prevent the normal form POST: email submission continues.
     });
 });
-
