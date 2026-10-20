@@ -219,49 +219,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Existing contact form: optional WhatsApp click-to-chat */
 
-form.addEventListener("submit", async (event) => {
-    if (!checkbox.checked) return;   // normal submit, email only
+/* Contact form: email submission + optional WhatsApp */
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const checkbox = document.getElementById("sendOnWhatsApp");
 
-    event.preventDefault();
+    if (!form || !checkbox) return;
 
-    const number = (form.dataset.whatsappNumber || "").replace(/\D/g, "");
-    if (!number) {
-        alert("WhatsApp is not configured yet. Please try again later.");
-        return;
-    }
+    form.addEventListener("submit", async (event) => {
+        if (!checkbox.checked) return;   // normal submit, email only
 
-    const name = document.getElementById("name")?.value.trim() || "";
-    const email = document.getElementById("email")?.value.trim() || "";
-    const phone = document.getElementById("phone")?.value.trim() || "";
-    const message = document.getElementById("message")?.value.trim() || "";
+        event.preventDefault();
 
-    const text = [
-        "Hi Mayank,", "",
-        "I'd like to connect with you through your portfolio.", "",
-        `Name: ${name}`, `Email: ${email}`, `Phone: ${phone}`, "",
-        "Message:", message
-    ].join("\n");
+        const number = (form.dataset.whatsappNumber || "").replace(/\D/g, "");
+        if (!number) {
+            alert("WhatsApp is not configured yet. Please try again later.");
+            return;
+        }
 
-    const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+        const name = document.getElementById("name")?.value.trim() || "";
+        const email = document.getElementById("email")?.value.trim() || "";
+        const phone = document.getElementById("phone")?.value.trim() || "";
+        const message = document.getElementById("message")?.value.trim() || "";
 
-    // Open synchronously inside the click so it isn't blocked
-    const waTab = window.open("", "_blank");
+        const text = [
+            "Hi Mayank,", "",
+            "I'd like to connect with you through your portfolio.", "",
+            `Name: ${name}`, `Email: ${email}`, `Phone: ${phone}`, "",
+            "Message:", message
+        ].join("\n");
 
-    // Send the email in the background without leaving the page
-    try {
-        await fetch(form.action, {
-            method: "POST",
-            body: new URLSearchParams(new FormData(form))
-        });
-    } catch (e) {
-        console.error("Email request failed", e);
-    }
+        const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 
-    if (waTab) {
-        waTab.location.href = url;
-    } else {
-        window.location.href = url;   // fallback if the tab was blocked
-    }
+        // Open synchronously inside the click so it isn't blocked
+        const waTab = window.open("", "_blank");
 
-    form.reset();
+        // Send the email in the background without leaving the page
+        try {
+            await fetch(form.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(form))
+            });
+        } catch (e) {
+            console.error("Email request failed", e);
+        }
+
+        if (waTab) {
+            waTab.location.href = url;
+        } else {
+            window.location.href = url;   // fallback if the tab was blocked
+        }
+
+        form.reset();
+    });
 });
