@@ -23,7 +23,7 @@
                                 <!-- To make this form functional, sign up at-->
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
                                 <!-- to get an API token!-->
-                                <form id="contactForm" th:action="@{/contact}" method="post">
+                                <form id="contactForm" th:action="@{/contact}" method="post" th:attr="data-whatsapp-number=${whatsappNumber}">
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required />

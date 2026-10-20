@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.beans.factory.annotation.Value;
 
 @Controller
 public class HomeController {
@@ -34,7 +35,7 @@ public class HomeController {
     public String showContactsPage(Model model)
     {
         model.addAttribute("title", "Contact");
-        //model.addAttribute("page", "contact");
+        model.addAttribute("whatsappNumber", whatsappNumber);
 
         return "master";
 
@@ -61,5 +62,6 @@ public class HomeController {
         );
         return "redirect:/contact";
     }
-
+    @Value("${portfolio.whatsapp.number:}")
+    private String whatsappNumber;
 }

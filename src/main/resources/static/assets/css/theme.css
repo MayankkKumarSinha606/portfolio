@@ -516,11 +516,11 @@ html.has-intro .intro-after:not(.is-in) {
   pointer-events: none;
 }
 
-/* ==========================================================================
+/*
    TOUCH BLOOM  (/assets/js/touch-effect.js)
    A soft disc spreads from wherever the page is touched or clicked, then fades.
    It never blocks a click and is switched off for "reduce motion".
-   ========================================================================== */
+*/
 .touch-bloom {
   position: fixed;
   z-index: 2000;
@@ -564,8 +564,8 @@ html.has-intro .intro-after:not(.is-in) {
   .touch-bloom { display: none; }
 }
 
-/* ==========================================================================
+/*
    PROJECTS: a compact closing band that joins the footer
-   ========================================================================== */
+   */
 main:has(.cta-band) { padding-bottom: 0; }
 body:has(.cta-band) footer::before { display: none; }

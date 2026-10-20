@@ -214,3 +214,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/* Existing contact form: optional WhatsApp click-to-chat */
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const checkbox = document.getElementById("sendOnWhatsApp");
+
+    if (!form || !checkbox) return;
+
+    form.addEventListener("submit", (event) => {
+        if (!checkbox.checked) return;
+
+        const number = (form.dataset.whatsappNumber || "").trim();
+
+        if (!number) {
+            event.preventDefault();
+            alert("WhatsApp is not configured yet. Please try again later.");
+            return;
+        }
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const text =
+            `Hi Mayank,\n\n` +
+            `I'd like to connect with you through your portfolio.\n\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}\n` +
+            `Phone: ${phone}\n\n` +
+            `Message:\n${message}`;
+
+        const url =
+            `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+
+        // Open immediately from the submit interaction to reduce
+        // the chance of the browser blocking the new tab.
+        window.open(url, "_blank");
+    });
+});
+
