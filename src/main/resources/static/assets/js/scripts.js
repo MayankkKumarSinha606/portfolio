@@ -219,55 +219,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Existing contact form: optional WhatsApp click-to-chat */
 
-/* Contact form: email submission + optional WhatsApp */
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
-    const checkbox = document.getElementById("sendOnWhatsApp");
+form.addEventListener("submit", async (event) => {
+    if (!checkbox.checked) return;   // normal submit, email only
 
-    if (!form || !checkbox) return;
+    event.preventDefault();
 
-    form.addEventListener("submit", (event) => {
-        if (!checkbox.checked) return;
+    const number = (form.dataset.whatsappNumber || "").replace(/\D/g, "");
+    if (!number) {
+        alert("WhatsApp is not configured yet. Please try again later.");
+        return;
+    }
 
-        const number = (form.dataset.whatsappNumber || "").trim();
+    const name = document.getElementById("name")?.value.trim() || "";
+    const email = document.getElementById("email")?.value.trim() || "";
+    const phone = document.getElementById("phone")?.value.trim() || "";
+    const message = document.getElementById("message")?.value.trim() || "";
 
-        if (!number) {
-            event.preventDefault();
-            alert("WhatsApp is not configured yet. Please try again later.");
-            return;
-        }
+    const text = [
+        "Hi Mayank,", "",
+        "I'd like to connect with you through your portfolio.", "",
+        `Name: ${name}`, `Email: ${email}`, `Phone: ${phone}`, "",
+        "Message:", message
+    ].join("\n");
 
-        const name = document.getElementById("name")?.value.trim() || "";
-        const email = document.getElementById("email")?.value.trim() || "";
-        const phone = document.getElementById("phone")?.value.trim() || "";
-        const message = document.getElementById("message")?.value.trim() || "";
+    const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 
-        const text = [
-            "Hi Mayank,",
-            "",
-            "I'd like to connect with you through your portfolio.",
-            "",
-            `Name: ${name}`,
-            `Email: ${email}`,
-            `Phone: ${phone}`,
-            "",
-            "Message:",
-            message
-        ].join("\n");
+    // Open synchronously inside the click so it isn't blocked
+    const waTab = window.open("", "_blank");
 
-        const url =
-            `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+    // Send the email in the background without leaving the page
+    try {
+        await fetch(form.action, {
+            method: "POST",
+            body: new URLSearchParams(new FormData(form))
+        });
+    } catch (e) {
+        console.error("Email request failed", e);
+    }
 
-        // Open WhatsApp directly from the user's submit interaction.
-        const whatsappTab = window.open(url, "_blank");
+    if (waTab) {
+        waTab.location.href = url;
+    } else {
+        window.location.href = url;   // fallback if the tab was blocked
+    }
 
-        if (!whatsappTab) {
-            alert(
-                "Your email will still be submitted, but WhatsApp was blocked. " +
-                "Allow pop-ups for this site to open WhatsApp."
-            );
-        }
-
-        // Let the normal form POST continue so the email is still sent.
-    });
+    form.reset();
 });
