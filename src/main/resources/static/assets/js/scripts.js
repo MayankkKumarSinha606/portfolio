@@ -218,6 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* Existing contact form: optional WhatsApp click-to-chat */
+
+/* Contact form: email submission + optional WhatsApp */
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const checkbox = document.getElementById("sendOnWhatsApp");
@@ -225,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form || !checkbox) return;
 
     form.addEventListener("submit", (event) => {
-        // Keep the normal email submission when WhatsApp isn't selected.
         if (!checkbox.checked) return;
 
         const number = (form.dataset.whatsappNumber || "").trim();
@@ -236,36 +237,37 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Open a tab directly during the user's submit interaction.
-        const whatsappTab = window.open("about:blank", "_blank");
-
         const name = document.getElementById("name")?.value.trim() || "";
         const email = document.getElementById("email")?.value.trim() || "";
         const phone = document.getElementById("phone")?.value.trim() || "";
         const message = document.getElementById("message")?.value.trim() || "";
 
-        const text =
-            `Hi Mayank,\n\n` +
-            `I'd like to connect with you through your portfolio.\n\n` +
-            `Name: ${name}\n` +
-            `Email: ${email}\n` +
-            `Phone: ${phone}\n\n` +
-            `Message:\n${message}`;
+        const text = [
+            "Hi Mayank,",
+            "",
+            "I'd like to connect with you through your portfolio.",
+            "",
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Phone: ${phone}`,
+            "",
+            "Message:",
+            message
+        ].join("\n");
 
         const url =
             `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 
-        if (whatsappTab) {
-            // Navigate the already-open tab to WhatsApp.
-            whatsappTab.location.href = url;
-        } else {
-            // Don't silently imply WhatsApp opened if the browser blocked it.
+        // Open WhatsApp directly from the user's submit interaction.
+        const whatsappTab = window.open(url, "_blank");
+
+        if (!whatsappTab) {
             alert(
-                "Your email will still be submitted, but your browser blocked " +
-                "the WhatsApp tab. Allow pop-ups for this site to use WhatsApp."
+                "Your email will still be submitted, but WhatsApp was blocked. " +
+                "Allow pop-ups for this site to open WhatsApp."
             );
         }
 
-        // Do not prevent the normal form POST: email submission continues.
+        // Let the normal form POST continue so the email is still sent.
     });
 });
