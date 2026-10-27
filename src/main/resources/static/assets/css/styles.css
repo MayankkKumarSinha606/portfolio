@@ -11909,3 +11909,42 @@ html {
     height: 100%;
     min-height: 100%;
 }
+
+/* Internship achievement metrics */
+.achievement-card {
+    background: rgba(13, 110, 253, 0.045);
+    border: 1px solid rgba(13, 110, 253, 0.12);
+    transition: transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(13, 110, 253, 0.35);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.achievement-number {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--bs-primary);
+}
+
+.achievement-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+    margin-top: 5px;
+}
+
+@media (max-width: 480px) {
+    .achievement-card {
+        padding: 0.75rem 0.25rem !important;
+    }
+
+    .achievement-label {
+        font-size: 0.7rem;
+    }
+}

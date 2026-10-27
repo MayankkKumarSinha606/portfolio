@@ -16,6 +16,7 @@
                 </h1>
             </div>
 
+
             <!-- ---------- Professional Experience ---------- -->
             <div class="row gx-5 justify-content-center mb-5">
                 <div class="col-lg-11 col-xl-9 col-xxl-8">
@@ -30,29 +31,85 @@
                     <div class="card border-0 shadow-sm rounded-4">
                         <div class="card-body p-4 p-md-5">
 
-                            <h3 class="h4 fw-bolder mb-2">Backend Development Intern</h3>
+                            <!-- Role and Company -->
+                            <h3 class="h4 fw-bolder mb-2">
+                                Software Engineering Intern
+                            </h3>
 
-                            <p class="text-gradient fw-semibold mb-3">
+                            <p class="text-gradient fw-semibold mb-1">
                                 Nearby Technologies (PayNearby)
                             </p>
 
+                            <p class="text-muted small mb-3">
+                                June 2025 – September 2025
+                            </p>
+
+                            <!-- Internship Achievement Metrics -->
+                            <div class="row g-3 mb-4 internship-metrics">
+
+                                <div class="col-4">
+                                    <div class="achievement-card text-center rounded-4 p-3 h-100">
+                                        <div class="achievement-number">100+</div>
+                                        <div class="achievement-label">Test Classes</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="achievement-card text-center rounded-4 p-3 h-100">
+                                        <div class="achievement-number">8</div>
+                                        <div class="achievement-label">Microservices</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="achievement-card text-center rounded-4 p-3 h-100">
+                                        <div class="achievement-number">~90%</div>
+                                        <div class="achievement-label">Test Coverage</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Internship Description -->
                             <p class="text-muted mb-3">
-                                Worked on backend development for Aadhaar Enabled
-                                Payment System (AePS) workflows, contributing to
-                                Java and Spring Boot services.
+                                Contributed to the backend development and testing of an
+                                enterprise Aadhaar Enabled Payment System (AePS) platform,
+                                working with Java and Spring Boot microservices supporting
+                                banking workflows.
                             </p>
 
                             <p class="text-muted mb-3">
-                                Worked with service-layer components and backend
-                                integrations, and wrote unit tests to help verify
-                                application behaviour.
+                                Developed 100+ JUnit 5 and Mockito test classes across
+                                8 microservices, contributing to approximately 90% test
+                                coverage and improving backend reliability.
                             </p>
 
-                            <p class="small mb-3">
+                            <p class="text-muted mb-3">
+                                Designed test suites for Agent Onboarding and
+                                Post-Transaction services, covering controllers, services,
+                                DAOs, DTOs, configurations and exception handling.
+                            </p>
+
+                            <p class="text-muted mb-3">
+                                Tested backend integrations and components involving
+                                Redis caching, AWS S3, Feign clients and geofencing
+                                validations using Spring Boot testing utilities.
+                            </p>
+
+                            <p class="text-muted mb-3">
+                                Collaborated in an Agile development environment,
+                                participating in code reviews and development workflows
+                                using Jira, Bitbucket and Maven.
+                            </p>
+
+                            <!-- Technologies -->
+                            <p class="small mb-4">
                                 <span class="fw-semibold">Technologies:</span>
-                                Java, Spring Boot, REST APIs, JUnit 5, Mockito
+                                Java, Spring Boot, REST APIs, JUnit 5, Mockito,
+                                Redis, AWS S3, Feign Client, Maven
                             </p>
 
+                            <!-- Certificate -->
                             <a th:href="@{/assets/documents/Internship Certificate.pdf}"
                                class="btn btn-outline-primary rounded-pill px-4"
                                target="_blank"
@@ -82,6 +139,7 @@
             <div class="row gx-5 justify-content-center">
                 <div class="col-12">
 
+
                     <!-- Project Card 1: Phishing URL Detection -->
                     <div class="card project-card overflow-hidden shadow-sm rounded-4 border-0 mb-5">
                         <div class="card-body p-0">
@@ -89,30 +147,48 @@
 
                                 <div class="col-lg-7 p-4 p-md-5 project-description">
 
-                                    <h2 class="h3 fw-bolder mb-3">Phishing URL Detection System</h2>
+                                    <h2 class="h3 fw-bolder mb-3">
+                                        Phishing URL Detection System
+                                    </h2>
 
                                     <p class="text-muted mb-3">
-                                        Developed a machine-learning-based system that analyses
-                                        URL characteristics and security-related information
-                                        to identify potentially malicious websites.
+                                        Developed a machine-learning-based phishing detection
+                                        system that analyses URL structures, domain
+                                        characteristics, webpage elements and website
+                                        reputation to identify potentially malicious websites.
                                     </p>
 
                                     <p class="text-muted mb-3">
-                                        Evaluated multiple classification algorithms, including
-                                        CatBoost, Gradient Boosting and Random Forest, achieving
-                                        a reported classification accuracy of 95%.
+                                        Engineered 29 features covering URL patterns, domain
+                                        registration, HTML elements, browser behaviour and
+                                        website reputation. Trained and evaluated multiple
+                                        classification algorithms, including Gradient Boosting,
+                                        CatBoost and Random Forest, using a publicly available
+                                        dataset containing 10,000+ URLs.
                                     </p>
 
                                     <ul class="text-muted mb-3">
-                                        <li>Chrome extension for scanning the current website.</li>
-                                        <li>Displays safe website and phishing alerts.</li>
-                                        <li>Flask API for URL analysis and prediction.</li>
-                                        <li>Dashboard for bulk URL scanning and results.</li>
+                                        <li>
+                                            Chrome extension for real-time URL safety analysis
+                                            with visual indicators.
+                                        </li>
+                                        <li>
+                                            Analyses website characteristics to identify
+                                            potentially malicious URLs.
+                                        </li>
+                                        <li>
+                                            Backend functionality for URL analysis and
+                                            prediction.
+                                        </li>
+                                        <li>
+                                            Dashboard supporting bulk URL scanning and
+                                            displaying analysis results.
+                                        </li>
                                     </ul>
 
                                     <p class="small mb-4">
                                         <strong>Technologies:</strong>
-                                        Python, Flask, CatBoost, Machine Learning,
+                                        Python, Machine Learning, Scikit-learn, Gradient Boosting,
                                         JavaScript, REST APIs
                                     </p>
 
@@ -124,6 +200,7 @@
                                             <i class="bi bi-images me-2"></i>
                                             View Screenshots
                                         </button>
+
                                         <a href="https://github.com/MayankkKumarSinha606/Phishing-URL-Extension"
                                            class="btn btn-outline-dark rounded-pill px-4"
                                            target="_blank"
@@ -147,9 +224,9 @@
                                              alt="Phishing detection extension showing a safe website result">
 
                                         <span class="project-preview-overlay">
-                                            <i class="bi bi-images me-2"></i>
-                                            View all 3 screenshots
-                                        </span>
+                        <i class="bi bi-images me-2"></i>
+                        View all 3 screenshots
+                    </span>
                                     </button>
                                 </div>
 
@@ -234,11 +311,7 @@
                         </div>
                     </div>
 
-                </div><!-- /.col-12 -->
-            </div><!-- /.row -->
 
-        </div><!-- /.container -->
-    </section>
 
     <!-- ===================== Phishing Modals ===================== -->
 
@@ -754,6 +827,11 @@
             </div>
         </div>
     </div>
+                </div><!-- /.col-12 -->
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+    </section>
 
 
     <!-- ===================== Call to action ===================== -->
@@ -764,6 +842,7 @@
                 <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" th:href="@{/contact}">Contact me</a>
             </div>
         </div>
+
     </section>
 
 </div><!-- /th:fragment="projects" -->
